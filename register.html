@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register for Active Studies</title>
+    <link rel="icon" type="image/png" href="assets/img/dermatrials_favicon.png" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+    
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="assets/plugins/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <style>
+		
+    </style>
+    
+  </head>
+  <body id="top">
+    <div class="container">
+      <div class="header">
+        <h3><span class="text-muted">Dermatrials Research - </span>Register for Active Studies</h3>
+      </div>
+
+      <form action="registration.php" method="post" target="_blank" id="registration-form" class="form-horizontal" role="form" name="registration" onkeyup="onkeyupRegistration()" onclick="onkeyupRegistration()">
+		      
+			      <div class="modal-body">
+			      
+					  <div class="form-group">
+					    <label for="inputFirst" class="control-label">Name</label><br><br>
+					    	<input type="text" class="form-control" id="inputFirst" placeholder="First Name" name="first"><br>
+					        <input type="text" class="form-control" id="inputLast" placeholder="Last Name" name="last">
+					  </div>
+					  <div class="form-group">
+					    <label for="inputEmail" class="control-label">Email</label><br><br>
+					        <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email">
+					  </div>
+					  <div class="form-group">
+					    <label for="inputHome" class="control-label">Telephone</label><br><br>
+					      <input type="text" pattern="[0-9]*" class="form-control" id="inputHome" placeholder="Home Phone Number" maxlength="10" name="home"><br>
+					      <input type="text" pattern="[0-9]*" class="form-control" id="inputCell" placeholder="Cell Phone Number" maxlength="10" name="cell">
+					  </div>
+					  <div class="form-group">
+					    <label for="inputAddress" class="control-label">Address</label><br><br>
+					      <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street"><br>
+					      <input type="text" class="form-control" id="inputCity" placeholder="City" name="city"><br>
+					      <select class="form-control" id="inputProvince" name="province">
+					        <option value="" disabled selected>Province</option>
+							<option value="Ontario">Ontario</option>
+					      </select>
+					  </div>
+					  <div class="form-group">
+					  	<label for="inputPostal" class="control-label"><p align="center">Postal Code</p></label><br><br>
+					      <input type="text" class="form-control" id="inputPostal" placeholder="" maxlength="6" name="postalcode" style="text-transform:uppercase;">
+					  </div>
+					  <div class="form-group">
+					  	<label for="inputReason" class="control-label" style="margin-right:0px;">Reason for Contact</label><br><br>
+					    	<textarea rows="3" class="form-control" id="inputReason" placeholder="Please provide a brief description of your skin disease." name="reason"></textarea>
+					  </div>
+					  
+					<div id="registrationAlert">
+					    <div class="alert alert-info"><strong>Notice!</strong> All Fields Required</div>
+					</div>
+					<hr>
+					<div align="center">
+						<button type="button" class="btn btn-warning" onclick="resetForm()">Reset</button>
+						<button id="submit" type="submit" value="Submit" class="btn btn-primary" disabled="disabled" name="submit">Submit</button>
+					</div>
+			      </div>
+			  </form>
+
+      <div class="row marketing">
+      	        
+      </div>
+
+      <div class="footer">
+        <p>&copy; Dermatrials Research 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <!-- Easing Anchor Effect -->
+    <script>
+    	$(function() {
+		  $('a[href*=#]:not([href=#])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        $('html,body').animate({
+		          scrollTop: target.offset().top
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		  });
+		});
+    </script>
+    
+    <!-- Fade between pages -->
+	<script>
+		$(document).ready(function() {
+		
+		if ($(this).width() > 1024) {
+
+		$('body').css('display', 'none');
+		
+		$('body').fadeIn(500);
+		
+		
+		
+		
+		
+		$('.fadelink').click(function(event) {
+		
+		event.preventDefault();
+		
+		newLocation = this.href;
+		
+		$('body').fadeOut(500, newpage);
+		
+		});
+		
+		
+		
+		function newpage() {
+		
+		window.location = newLocation;
+		
+		}
+		}
+		});
+	</script>
+	
+	<!--Only allow numbers in the phone fields-->
+	<script>
+		$('#inputHome').on('input', function (event) { 
+			this.value = this.value.replace(/[^0-9]/g, '');
+		});
+		$('#inputCell').on('input', function (event) { 
+			this.value = this.value.replace(/[^0-9]/g, '');
+		});
+	</script>
+	
+	<!-- Active Study Registration Form Live-checking for valid form -->
+	<script>
+        function onkeyupRegistration(){
+        	var submitButton=document.getElementById("submit");
+        	var registrationAlert=document.getElementById("registrationAlert");
+	        var valueFirst=document.forms["registration"]["inputFirst"].value;
+	        var valueLast=document.forms["registration"]["inputLast"].value;
+	        
+	        var valueEmail=document.forms["registration"]["inputEmail"].value;
+	        var atpos = valueEmail.indexOf("@");
+			var dotpos = valueEmail.lastIndexOf(".");
+	        
+	        var valueHome=document.forms["registration"]["inputHome"].value;
+	        var valueCell=document.forms["registration"]["inputCell"].value;
+	        var valueStreet=document.forms["registration"]["inputStreet"].value;
+	        var valueCity=document.forms["registration"]["inputCity"].value;
+	        var valueProvince=document.forms["registration"]["inputProvince"].value;
+	        
+	        var valuePostal=document.forms["registration"]["inputPostal"].value;
+	        var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
+	        
+	        var valueReason=document.forms["registration"]["inputReason"].value;
+	        
+	        
+			if ((valueFirst==null || valueFirst=="")||(valueLast==null || valueLast=="")||(valueEmail==null || valueEmail=="" || atpos< 1 || dotpos<atpos+2 || dotpos+2>=valueEmail.length)||(valueHome==null || valueHome=="" || valueHome.length<10)||(valueCell==null || valueCell=="" || valueCell.length<10)||(valueStreet==null || valueStreet=="")||(valueCity==null || valueCity=="")||(valueProvince!="Ontario")||(valuePostal==null || valuePostal=="" || valuePostal.length<6)||(valueReason==null || valueReason==""))
+				{
+					//Missing fields alert
+						//registrationAlert.innerHTML = '<div class="alert alert-danger"><strong>Alert!</strong> Some Fields Are Invalid or Missing Information </div>';
+					//Disable Submit Button
+					  		var disabledAttribute=document.createAttribute("disabled");
+					  		disabledAttribute.value="disabled";
+					  		submitButton.setAttributeNode(disabledAttribute);
+			} else if (regex.test(valuePostal)) {
+					//Success alert
+						//registrationAlert.innerHTML = '<div class="alert alert-success"><strong>Success!</strong> Message is sending... </div>';
+					
+				  	//Enable Submit Button
+				  		submitButton.removeAttribute("disabled")
+				}
+		}
+    </script>
+    
+    <!-- Reset the registration form -->
+    <script>
+    	function resetForm(){
+	    	//Reset the registration form
+	    		document.getElementById("registration-form").reset();
+	    	
+	    	//Re-disable Submit Button
+	    		var submitButton=document.getElementById("submit");
+	    		
+		  		var disabledAttribute=document.createAttribute("disabled");
+		  		disabledAttribute.value="disabled";
+		  		submitButton.setAttributeNode(disabledAttribute);
+    	}
+    </script>
+	
+	<!-- FancyBox -->
+	<script>
+        $(document).ready(function() {
+            $('.fancybox').fancybox();
+        });
+    </script>
+	<script type="text/javascript" src="assets/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+	
+  </body>
+</html>
