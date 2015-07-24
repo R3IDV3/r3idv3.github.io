@@ -4,6 +4,7 @@
 <title>eggplant</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="js/modernizr.custom.24664.js"></script>
 </head>
 <body>
 
@@ -18,14 +19,14 @@
 
 <section id="about">
 	<div class="overlay"></div>
-	<div id="arrow-separator"><i class="fa fa-arrow-right"></i></div>
-	<div id="about-tile" class="left">
+	<div id="arrow-separator"></div>
+	<div id="about-tile" class="left resize">
 		<h1>Who I am</h1>
 		<p>My name is <b>Reid Vender</b>: <i class="fa fa-apple" style="font-size: smaller; text-indent: 0px;"></i> fanboy, vinyl collector, and programming enthusiast.</p>
 		<p>I enjoy running, mountain biking, and rock climbing in my spare time to develop my quick thinking, creativity and adaptivity.</p>
 		<p><a class="b" target="_blank" href="http://biobus.ca/de-bugging-but-not-bugging-out/" data-hover="Nature">Nature</a> is a huge part of my work and play. I venture to discover parallels between nature and programming, seamlessly fusing them.</p>
 	</div>
-	<div id="about-tile" class="right">
+	<div id="about-tile" class="right resize">
 		<h1>What I do</h1>
 		<p>I'm a Medical Health Informatics student at <b>Western University</b> and Vice President Education at <a class="b" target="_blank" href="http://www.foundersnetwork.ca" data-hover="Founders Network">Founders&nbsp;Network</a>, where our team equips entrepreneurs from all backgrounds with the means and know-how to run a successful tech startup.</p>
 		<p>I'm <b>full stack</b>: front-end, back-end, a student and a teacher.</p>
@@ -115,5 +116,19 @@
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script src="js/ticker.js"></script>
+<script src="js/autoSizr.js"></script>
+<script src="js/jquery.fittext.js"></script>
+<script src="js/aboutTiles.js"></script>
+<script>
+	$(function(){
+		var left = $('#title').children('h1').offset().left + $('#title').children('h1').width(),
+		bottom = $('#title').children('h1').offset().top;
+		
+		$('#subtitle').css({
+			'left': left + 'px',
+			'top': bottom - ( $('#subtitle').height() / 2) + 'px',
+		});
+	});
+</script>
 </body>
 </html>
