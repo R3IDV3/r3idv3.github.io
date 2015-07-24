@@ -1,0 +1,63 @@
+@mixin vp($name, $argument) { // automatically prepend vendor prefixes to a given property
+	-webkit-#{$name}: #{$argument};
+	-ms-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	-o-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+@mixin vcc() { // vertically center children
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-pack:center;
+	-webkit-justify-content:center;
+	-moz-justify-content:center;
+	-ms-flex-pack:center;
+	justify-content:center;
+    
+    -webkit-flex-line-pack:center;
+	-ms-flex-line-pack:center;
+	-webkit-align-content:center;
+	align-content:center;
+    
+    -webkit-flex-direction:column;
+	-moz-flex-direction:column;
+	-ms-flex-direction:column;
+	flex-direction:column;
+}
+
+@mixin ac() { //absolutely center self
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
+
+@mixin vc() { //vertically center self
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translate3d(0,-50%,0);
+	transform: translate3d(0,-50%,0);
+}
+
+@mixin respond-to($breakpoint) { // styles when the screen-width drops below $breakpoint
+	@media screen and (max-width: $breakpoint) { @content; }
+}
+
+@function sqrt($r) { 
+	$x0: 1;
+	$x1: $x0;
+ 
+	@for $i from 1 through 10 {
+		$x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+		$x0: $x1;
+	}
+ 
+	@return $x1;
+}

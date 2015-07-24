@@ -1,0 +1,426 @@
+/*
+Document:	Eggplant Theme
+Website:	http://www.eggplant.me/
+Author:		Reid Vender
+Version:	1.0
+*/
+
+@import 'css/_mixins';
+
+$eggplant: #531B93;
+$dark-eggplant: #47157F;
+$light-eggplant: #F4EAFF;
+
+$beige: #FECDA7;
+
+$easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+@font-face {
+	font-family: 'Linotte Semi Bold';
+	src: url('fonts/linotte/2EAD80_0_0.eot');
+	src: url('fonts/linotte/2EAD80_0_0.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/linotte/2EAD80_0_0.woff2') format('woff2'),
+		 url('fonts/linotte/2EAD80_0_0.woff') format('woff'),
+		 url('fonts/linotte/2EAD80_0_0.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Campton Bold';
+	src: url('fonts/campton/2EAD7F_0_0.eot');
+	src: url('fonts/campton/2EAD7F_0_0.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/campton/2EAD7F_0_0.woff2') format('woff2'),
+		 url('fonts/campton/2EAD7F_0_0.woff') format('woff'),
+		 url('fonts/campton/2EAD7F_0_0.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,400italic);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 62.5%; padding: 0; margin: 0;}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Linotte Semi Bold';
+}
+
+p {
+	font-family: 'PT Serif';
+}
+
+b {
+	font-family: 'Campton Bold';
+	font-style: normal;
+	font-size: 1.3em;
+	text-transform: lowercase;
+	font-variant: small-caps;
+}
+
+a {
+	
+	&.b {
+		font-family: 'Campton Bold';
+		font-style: normal;
+		font-size: 1.3em;
+		text-transform: lowercase;
+		font-variant: small-caps;
+		color: $dark-eggplant;
+		text-decoration: none;
+		
+		&::before {
+			content: attr(data-hover);
+			color: #fff;
+			position: absolute;
+			text-indent: 0;
+			-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+			transition: transform 0.3s, opacity 0.3s;
+		}
+		
+		&:hover {
+			
+			&::before {
+				-webkit-transform: scale(0.9);
+				transform: scale(0.9);
+				opacity: 0;
+			}
+		}
+	}
+}
+
+#home {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	background: $eggplant;
+	text-align: center;
+	
+	#title {
+		position: absolute;
+		top: 0;
+		display: block;
+		height: 50vh;
+		width: 100vw;
+		margin: 0;
+		
+		h1 {
+			display: inline-block;
+			color: $light-eggplant;
+			cursor: default;
+			font-size: 15rem;
+			text-shadow: 0.04em 0.04em 0em rgba(0,0,0,0.2);
+			margin: 0;
+			@include ac();
+			
+			&:hover + #subtitle {
+				-webkit-transform: rotate3d(0,0,0,100deg);
+			    opacity: 1;
+			}
+		}
+		
+		#subtitle {
+			position: absolute;
+			height: 100px;
+			opacity: 0;
+			-webkit-transform: rotate3d(0.2, 0.4, 0.9, 100deg);
+			-webkit-transform-origin: 0% 100%;
+			transform: rotate3d(0.2, 0.4, 0.9, 100deg);
+			transform-origin: 0% 100%;
+		    -webkit-transition: all 0.5s $easeInOutBack;
+		    transition: 		all 0.5s $easeInOutBack;
+		}
+	}
+	
+	img.logo {
+		@include ac();
+		height: 100px;
+	}
+	
+	p {
+		position: absolute;
+		top: 50vh;
+		display: block;
+		height: 50vh;
+		line-height: 50vh;
+		width: 100vw;
+		color: white;
+		font-size: 5rem;
+		margin: 0;
+		
+		#ticker {
+			display: inline-block;
+			opacity: 1;
+			-webkit-transform: translateY(0px);
+			transform:		   translateY(0px);
+			-webkit-transition: all 0.6s $easeInOutBack;
+			transition:         all 0.6s $easeInOutBack;
+			
+			&.animate-out {
+				opacity: 0;
+				-webkit-transform: translateY(30px);
+				transform:		   translateY(30px);
+			}
+		}
+	}
+}
+
+#about {
+	position: relative;
+	height: 100vh;
+	width: 100vw;
+	background: url('img/apple-products.jpg') center/cover no-repeat;
+	overflow: hidden;
+	
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		//background-color: rgba(84, 27, 148, 0.5);
+		//background-color: rgba(255, 206, 168, 0.6);
+		background: -webkit-linear-gradient(-90deg, rgba(84, 27, 148, 0.5) 25%, rgba(255, 206, 168, 0.5) 100%);
+	}
+	
+	#arrow-separator {
+		color: white;
+		font-size: 5rem;
+		cursor: pointer;
+		opacity: 0;
+		@include ac();
+		
+		-webkit-transition: 0.6s $easeInOutCubic;
+		transition: 0.6s $easeInOutCubic;
+		
+		z-index: 1;
+		
+		&.show {
+			opacity: 0.6;
+			
+			&:hover {
+				opacity: 1;
+			}
+			
+			&.flip {
+				-webkit-transform: rotate3d(0,0,1,180deg);
+				-webkit-transform-origin: 25% 25%;
+			}
+		}
+	}
+	
+	#about-tile {
+		position: absolute;
+		top: 0;
+		
+		width: 50vw;
+		height: 100vh;
+		background-color: rgba(84, 27, 148, 0.9);
+		//background-color: rgba(255, 206, 168, 0.9);
+		padding: 50px;
+		
+		opacity: 0;
+		
+		-webkit-transition: all 0.6s $easeInOutCubic;
+		transition: all 0.6s $easeInOutCubic;
+		
+		z-index: 0;
+		
+		&.left {
+			left: 0;
+			-webkit-transform: translateX(-50vw);
+			transform: translateX(-50vw);
+		}
+		
+		&.right {
+			left: 50vw;
+			-webkit-transform: translateX(50vw);
+			transform: translateX(50vw);
+		}
+		
+		&.show {
+			opacity: 1;
+			-webkit-transform: translateX(0vw);
+			transform: translateX(0vw);
+		}
+		
+		h1 {
+			color: white;
+			font-size: 11rem;
+			margin: 0;
+		}
+		
+		p {
+			text-indent: 1.5em;
+			color: white;
+			font-size: 4vh;
+			font-style: italic;
+			margin: 0;
+		}
+	}
+}
+
+#my-work {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	background: $eggplant;
+	text-align: center;
+	@include vcc();
+	
+	h1 {
+		color: white;
+		font-size: 8rem;
+		font-weight: 400;
+		margin: 0;
+	}
+	
+	p.contact {
+		-webkit-transform: translateZ(0px);
+				transform: translateZ(0px);
+		font-size: 24px;
+		line-height: 50px;
+		height: 50px;
+		text-align: center;
+		margin: 0.5em 0 1.25em 0;
+		padding: 0;
+		
+		a {
+			font-family: 'fontawesome';
+			color: $dark-eggplant;
+			
+			&::before {
+				color: $light-eggplant;
+			}
+		}
+	}
+	
+	.grid {
+		width: 90%;
+		margin: 0 auto;
+		
+		figure {
+			display: inline-block;
+			position: relative;
+			width: 30%;
+			margin: 10px;
+			//background: $dark-eggplant;
+			cursor: pointer;
+			
+			img {
+				position: relative;
+				width: 100%;
+				display: block;
+				border-radius: 8px;
+			}
+			
+			figcaption {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(71, 21, 128, 0);
+				border-radius: 8px;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				-webkit-transition: all 0.5s;
+				transition: all 0.5s;
+				
+				a {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					white-space: nowrap;
+					font-size: 0;
+					opacity: 0;
+					z-index: 1000;
+				}
+				
+				&::before, &::after {
+					pointer-events: none;
+				}
+				
+				&:hover {
+					background: rgba(71, 21, 128, 0.6);
+					
+					h2 {
+						opacity: 1;
+						bottom: 0;
+					}
+					
+					p {
+						opacity: 1;
+						top: 0;
+						-webkit-transition-delay: 0.3s;
+						transition-delay: 0.3s;
+						
+					}
+				}
+				
+				.half {
+					position: relative;
+					height: 50%;
+				}
+				
+				h2 {
+					position: absolute;
+					left: 50%;
+					-webkit-transform: translateX(-50%) translateZ(0px);
+					transform: translateX(-50%) translateZ(0px);
+					bottom: 10px;
+					color: white;
+					font-family: 'Campton Bold';
+					font-style: normal;
+					font-size: 4rem;
+					margin: 0;
+					opacity: 0;
+					text-transform: lowercase;
+					font-variant: small-caps;
+					-webkit-transition: all 0.5s;
+					transition: all 0.5s;
+				}
+				
+				p {
+					font-family: 'Linotte Semi Bold';
+					position: absolute;
+					left: 50%;
+					width: 75%;
+					-webkit-transform: translateX(-50%) translateZ(0px);
+							transform: translateX(-50%) translateZ(0px);
+					top: 10px;
+					color: white;
+					font-size: 1.4vw;
+					margin: 0;
+					opacity: 0;
+					-webkit-transition: all 0.5s;
+					transition: all 0.5s;
+					-webkit-transition-delay: 0s;
+					transition-delay: 0s;
+					
+					em {
+						font-family: 'PT serif';
+						font-size: 0.9em;
+					}
+				}
+			}
+		}
+	}
+	
+/*
+	.contact {
+		position: absolute;
+		bottom: 0;
+		height: 50px;
+		width: 100vw;
+		background: $dark-eggplant;
+		align-content: center;
+	}
+*/
+}
