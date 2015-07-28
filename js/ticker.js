@@ -19,7 +19,8 @@ $(function(){
 			'intricacy',
 			'SCSS',
 			'Markdown',
-			'Bootstrap'
+			'Bootstrap',
+			'JQuery',
 		];
 	
 	ticker();
