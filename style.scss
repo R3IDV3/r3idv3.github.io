@@ -66,14 +66,19 @@ b {
 
 a {
 	
-	&.b {
+	&.b.no-effect {
 		font-family: 'Campton Bold';
 		font-style: normal;
 		font-size: 1.3em;
 		text-transform: lowercase;
 		font-variant: small-caps;
-		color: $dark-eggplant;
+		color: #fff;
 		text-decoration: none;
+	}
+		
+	&.b:not(.no-effect) {
+		@extend &.b.no-effect;
+		color: $dark-eggplant;
 		
 		&::before {
 			content: attr(data-hover);
@@ -235,6 +240,7 @@ html.touch {
 		//background-color: rgba(84, 27, 148, 0.5);
 		//background-color: rgba(255, 206, 168, 0.6);
 		background: -webkit-linear-gradient(-90deg, rgba(84, 27, 148, 0.5) 25%, rgba(255, 206, 168, 0.5) 100%);
+		background: linear-gradient(-90deg, rgba(84, 27, 148, 0.5) 25%, rgba(255, 206, 168, 0.5) 100%);
 	}
 	
 	#arrow-separator {
@@ -314,7 +320,7 @@ html.touch {
 		p {
 			text-indent: 1.5em;
 			color: white;
-			font-size: 100px;
+			font-size: 30px;
 			font-style: italic;
 			margin: 0;
 		}
