@@ -378,6 +378,7 @@ html.touch {
 	width: 100vw;
 	min-height: 100vh;
 	margin: 0;
+	padding: 50px 0;
 	background: $eggplant;
 	text-align: center;
 	@include vcc();
@@ -495,6 +496,11 @@ html.touch {
 					font-variant: small-caps;
 					-webkit-transition: all 0.5s;
 					transition: all 0.5s;
+					
+					&.large {
+						line-height: 75%;
+						margin-bottom: 10px;
+					}
 				}
 				
 				p {
