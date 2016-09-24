@@ -16,7 +16,7 @@ $(function() {
 
 		// Navigation items
 		siteNavItems: [
-			{ name: 'Back', href: 'http://eggplant.me', newWindow: false}
+			{ name: 'Home', href: 'http://eggplant.me', newWindow: false}
 		],
 
 		// Posts folder name
