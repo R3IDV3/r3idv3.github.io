@@ -46,7 +46,7 @@ body, html { font-size: 62.5%; padding: 0; margin: 0;}
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Linotte Semi Bold';
-	
+
 	@include respond-to(1024px) {
 		font-weight: 100;
 	}
@@ -65,7 +65,7 @@ b {
 }
 
 a {
-	
+
 	&.b.no-effect {
 		font-family: 'Campton Bold';
 		font-style: normal;
@@ -75,11 +75,11 @@ a {
 		color: #fff;
 		text-decoration: none;
 	}
-		
+
 	&.b:not(.no-effect) {
-		@extend &.b.no-effect;
+		@extend .b.no-effect;
 		color: $dark-eggplant;
-		
+
 		&::before {
 			content: attr(data-hover);
 			color: #fff;
@@ -88,9 +88,9 @@ a {
 			-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
 			transition: transform 0.3s, opacity 0.3s;
 		}
-		
+
 		&:hover {
-			
+
 			&::before {
 				-webkit-transform: scale(0.9);
 				transform: scale(0.9);
@@ -101,27 +101,27 @@ a {
 }
 
 html.touch {
-	
+
 	#my-work {
-		
+
 		.grid {
-			
+
 			figure {
-				
+
 				figcaption {
 					background: rgba(71, 21, 128, 0.6);
-					
+
 					h2 {
 						opacity: 1;
 						bottom: 0;
 					}
-					
+
 					p {
 						opacity: 1;
 						top: 0;
 						-webkit-transition-delay: 0.3s;
 						transition-delay: 0.3s;
-						
+
 					}
 				}
 			}
@@ -136,7 +136,16 @@ html.touch {
 	margin: 0;
 	background: $eggplant;
 	text-align: center;
-	
+
+    .blog-link {
+        position: absolute;
+        right: 40px;
+        top: 30px;
+        font-size: 25px;
+        z-index: 99999;
+        text-decoration: none;
+    }
+
 	#title {
 		position: absolute;
 		top: 0;
@@ -144,7 +153,7 @@ html.touch {
 		height: 50vh;
 		width: 100vw;
 		margin: 0;
-		
+
 		h1 {
 			display: inline-block;
 			color: $light-eggplant;
@@ -153,14 +162,14 @@ html.touch {
 			text-shadow: 0.04em 0.04em 0em rgba(0,0,0,0.2);
 			margin: 0;
 			@include ac();
-			
+
 			&:hover + #subtitle {
 				-webkit-transform: rotate3d(0,0,0,100deg);
 						transform: rotate3d(0,0,0,100deg);
 			    opacity: 1;
 			}
 		}
-		
+
 		#subtitle {
 			position: absolute;
 			height: 100px;
@@ -173,12 +182,12 @@ html.touch {
 		    transition: 		all 0.5s $easeInOutBack;
 		}
 	}
-	
+
 	img.logo {
 		@include ac();
 		height: 100px;
 	}
-	
+
 	p {
 		position: absolute;
 		top: 50vh;
@@ -189,7 +198,7 @@ html.touch {
 		color: white;
 		font-size: 5rem;
 		margin: 0;
-		
+
 		#ticker {
 			display: inline-block;
 			opacity: 1;
@@ -197,7 +206,7 @@ html.touch {
 			transform:		   translateY(0px);
 			-webkit-transition: all 0.6s $easeInOutBack;
 			transition:         all 0.6s $easeInOutBack;
-			
+
 			&.animate-out {
 				opacity: 0;
 				-webkit-transform: translateY(30px);
@@ -205,19 +214,19 @@ html.touch {
 			}
 		}
 	}
-	
+
 	@media only screen and (orientation : portrait) {
 		#title {
-			
+
 			h1 {
 				font-size: 17.5vw;
 			}
 		}
-				
+
 		img.logo {
 			height: 25vw;
 		}
-		
+
 		p {
 			font-size: 7vw;
 		}
@@ -230,7 +239,7 @@ html.touch {
 	width: 100vw;
 	background: url('img/apple-products.jpg') center/cover no-repeat;
 	overflow: hidden;
-	
+
 	.overlay {
 		position: absolute;
 		top: 0;
@@ -242,31 +251,31 @@ html.touch {
 		background: -webkit-linear-gradient(-90deg, rgba(84, 27, 148, 0.5) 25%, rgba(255, 206, 168, 0.5) 100%);
 		background: linear-gradient(-90deg, rgba(84, 27, 148, 0.5) 25%, rgba(255, 206, 168, 0.5) 100%);
 	}
-	
+
 	#arrow-separator {
 		color: white;
 		font-size: 4vw;
 		cursor: pointer;
 		opacity: 0;
 		@include ac();
-		
+
 		-webkit-transition: 0.6s $easeInOutCubic;
 		transition: 0.6s $easeInOutCubic;
-		
+
 		z-index: 1;
-		
+
 		&::before {
 			content: '\f061';
 			font-family: 'fontawesome';
 		}
-		
+
 		&.show {
 			opacity: 0.6;
-			
+
 			&:hover {
 				opacity: 1;
 			}
-			
+
 			&.flip {
 				-webkit-transform: rotate3d(0,0,1,180deg) translate3d(-50%,-50%,0);
 						transform: rotate3d(0,0,1,180deg) translate3d(-50%,-50%,0);
@@ -275,48 +284,48 @@ html.touch {
 			}
 		}
 	}
-	
+
 	#about-tile {
 		position: absolute;
 		top: 0;
-		
+
 		width: 50vw;
 		height: 100vh;
 		background-color: rgba(84, 27, 148, 0.9);
 		//background-color: rgba(255, 206, 168, 0.9);
 		padding: 50px;
-		
+
 		opacity: 0;
-		
+
 		-webkit-transition: all 0.6s $easeInOutCubic;
 		transition: all 0.6s $easeInOutCubic;
-		
+
 		z-index: 0;
-		
+
 		&.left {
 			left: 0;
 			-webkit-transform: translateX(-50vw);
 			transform: translateX(-50vw);
 		}
-		
+
 		&.right {
 			left: 50vw;
 			-webkit-transform: translateX(50vw);
 			transform: translateX(50vw);
 		}
-		
+
 		&.show {
 			opacity: 1;
 			-webkit-transform: translateX(0vw);
 			transform: translateX(0vw);
 		}
-		
+
 		h1 {
 			color: white;
 			font-size: 14.3vh;
 			margin: 0;
 		}
-		
+
 		p {
 			text-indent: 1.5em;
 			color: white;
@@ -325,36 +334,36 @@ html.touch {
 			margin: 0;
 		}
 	}
-	
+
 	@media only screen and (orientation : portrait) {
-		
+
 		#arrow-separator {
 			top: 100%;
 			left: 50%;
 			-webkit-transform: translate3d(-50%,-110%,0);
 			transform: translate3d(-50%,-110%,0);
-			
+
 			&::before {
 				content: 'What I do ';
 				font-family: 'Linotte Semi Bold';
 			}
-			
+
 			&::after {
 				content: '\f061';
 				font-family: 'fontawesome';
 			}
-			
+
 			&.show {
-				
+
 				&.flip {
 					-webkit-transform: translate3d(-50%,-110%,0);
 					transform: translate3d(-50%,-110%,0);
-					
+
 					&::before {
 						content: '\f060';
 						font-family: 'fontawesome';
 					}
-					
+
 					&::after {
 						content: ' Who I am';
 						font-family: 'Linotte Semi Bold';
@@ -362,10 +371,10 @@ html.touch {
 				}
 			}
 		}
-		
+
 		#about-tile {
 			width: 100vw;
-			
+
 			&.right {
 				left: 0;
 			}
@@ -382,14 +391,14 @@ html.touch {
 	background: $eggplant;
 	text-align: center;
 	@include vcc();
-	
+
 	h1 {
 		color: white;
 		font-size: 8rem;
 		font-weight: 400;
 		margin: 0;
 	}
-	
+
 	p.contact {
 		-webkit-transform: translateZ(0px);
 				transform: translateZ(0px);
@@ -399,21 +408,21 @@ html.touch {
 		text-align: center;
 		margin: 0.5em 0 1.25em 0;
 		padding: 0;
-		
+
 		a {
 			font-family: 'fontawesome';
 			color: $dark-eggplant;
-			
+
 			&::before {
 				color: $light-eggplant;
 			}
 		}
 	}
-	
+
 	.grid {
 		width: 90%;
 		margin: 0 auto;
-		
+
 		figure {
 			display: inline-block;
 			position: relative;
@@ -421,14 +430,14 @@ html.touch {
 			margin: 10px;
 			//background: $dark-eggplant;
 			cursor: pointer;
-			
+
 			img {
 				position: relative;
 				width: 100%;
 				display: block;
 				border-radius: 8px;
 			}
-			
+
 			figcaption {
 				position: absolute;
 				top: 0;
@@ -441,7 +450,7 @@ html.touch {
 				backface-visibility: hidden;
 				-webkit-transition: all 0.5s;
 				transition: all 0.5s;
-				
+
 				a {
 					position: absolute;
 					top: 0;
@@ -453,33 +462,33 @@ html.touch {
 					opacity: 0;
 					z-index: 1000;
 				}
-				
+
 				&::before, &::after {
 					pointer-events: none;
 				}
-				
+
 				&:hover {
 					background: rgba(71, 21, 128, 0.6);
-					
+
 					h2 {
 						opacity: 1;
 						bottom: 0;
 					}
-					
+
 					p {
 						opacity: 1;
 						top: 0;
 						-webkit-transition-delay: 0.3s;
 						transition-delay: 0.3s;
-						
+
 					}
 				}
-				
+
 				.half {
 					position: relative;
 					height: 50%;
 				}
-				
+
 				h2 {
 					position: absolute;
 					left: 50%;
@@ -496,13 +505,13 @@ html.touch {
 					font-variant: small-caps;
 					-webkit-transition: all 0.5s;
 					transition: all 0.5s;
-					
+
 					&.large {
 						line-height: 75%;
 						margin-bottom: 10px;
 					}
 				}
-				
+
 				p {
 					font-family: 'Linotte Semi Bold';
 					position: absolute;
@@ -519,7 +528,7 @@ html.touch {
 					transition: all 0.5s;
 					-webkit-transition-delay: 0s;
 					transition-delay: 0s;
-					
+
 					em {
 						font-family: 'PT serif';
 						font-size: 0.9em;
@@ -528,35 +537,35 @@ html.touch {
 			}
 		}
 	}
-	
+
 	@media only screen and (orientation : portrait) {
-		
+
 		h1 {
 			margin-top: 1em;
 			font-size: 20vw;
 		}
-		
+
 		p.contact {
 			font-size: 10vw;
 		}
-		
+
 		.grid {
-			
+
 			figure {
 				width: 100%;
 				margin: 2.5vw 0;
-				
+
 				figcaption {
-					
+
 					h2 {
 						font-size: 12.5vw;
 					}
-					
+
 					p {
 						font-size: 4.2vw;
 					}
 				}
 			}
 		}
-	}	
+	}
 }

@@ -9,6 +9,7 @@
 <body>
 
 <section id="home">
+    <a class="b blog-link" href="/blog" data-hover="Blog">Blog</a>
 	<div id="title">
 		<h1>eggplant</h1>
 		<img id="subtitle" src="img/speech-bubble.png" />
@@ -134,7 +135,7 @@
 	$(function(){
 		var left = $('#title').children('h1').offset().left + $('#title').children('h1').width(),
 		bottom = $('#title').children('h1').offset().top;
-		
+
 		$('#subtitle').css({
 			'left': left + 'px',
 			'top': bottom - ( $('#subtitle').height() / 2) + 'px',
