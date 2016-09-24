@@ -3,10 +3,10 @@ $(function() {
 	CMS.init({
 
 		// Name of your site or location of logo file ,relative to root directory (img/logo.png)
-		siteName: 'Eggplant',
+		siteName: 'eggplant',
 
 		// Tagline for your site
-		siteTagline: 'Blog',
+		siteTagline: 'BLOG',
 
 		// Email address
 		siteEmail: 'reid.vender@me.com',
