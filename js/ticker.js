@@ -13,6 +13,8 @@ $(function(){
 			'fluidity',
 			'LESS',
 			'WordPress',
+            'Laravel',
+            'NodeJS',
 			'PHP',
 			'creativity',
 			'SQL',
@@ -22,9 +24,9 @@ $(function(){
 			'Bootstrap',
 			'JQuery',
 		];
-	
+
 	ticker();
-	
+
 	function ticker() {
 		$('#ticker').children('b').html(items[i]);
 		$('#ticker').css({
@@ -33,10 +35,10 @@ $(function(){
 		t = setTimeout(function(){
 			$('#ticker').removeClass('animate-out');
 			i = (i + 1) % items.length;
-			
+
 			tt = setTimeout(function(){
 				$('#ticker').addClass('animate-out');
-				
+
 				ttt = setTimeout(function(){
 					ticker();
 				}, 700);
