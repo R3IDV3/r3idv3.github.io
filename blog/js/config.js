@@ -16,7 +16,6 @@ $(function() {
 
 		// Navigation items
 		siteNavItems: [
-			{ name: 'Github', href: 'https://github.com/yourname', newWindow: false},
 			{ name: 'Back', href: 'http://eggplant.me', newWindow: false}
 		],
 
